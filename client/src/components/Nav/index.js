@@ -23,14 +23,14 @@ export function Nav() {
     return (
         <div className="flex justify-between items-center p-[48px] bg-grey h-[100px] shadow-lg fixed w-full mt-[-150px] z-50">
             <h1 className="ml-2 uppercase font-bold text-slate-600 cursor-pointer">
-                <strong className="flex items-center text-green-800 gap-2">Dream<GiStripedSun className="text-[#6f6f6f]" />Trip</strong></h1>
+                <strong className="flex items-center text-green-800 gap-2">Dream<GiStripedSun className="text-slate-600" alt='logo icon'/>Trip</strong></h1>
             <div className="flex gap-8 list-none">
             {categories.map((category) =>
                 (
-                <li className="menuList text-slate-600 hover:text-black cursor-pointer" key={category.name}><span>{category.name}</span></li>
+                <li className="text-slate-600 hover:text-black cursor-pointer" key={category.name}><span>{category.name}</span></li>
                 )
             )}
-                <li className="menuList flex items-center gap-2 text-slate-600 hover:text-black cursor-pointer"><AiOutlineShoppingCart />Checkout</li>
+                <li className="flex items-center gap-2 text-slate-600 hover:text-black cursor-pointer"><AiOutlineShoppingCart />Checkout</li>
             </div>
         </div>
     );

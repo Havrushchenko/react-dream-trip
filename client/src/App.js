@@ -4,6 +4,7 @@ import { Nav } from './components/Nav';
 import { Search } from './components/Search';
 import { Card } from './components/Card';
 import { Subscribtion } from './components/Subscribtion';
+import { Footer } from './components/Footer';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
     <Search></Search>
     <Card></Card>
     <Subscribtion></Subscribtion>
+    <Footer></Footer>
     </>
   );
 }

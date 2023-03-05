@@ -41,8 +41,8 @@ w-[100%] text-sm' placeholder={input.placeholder} />
 w-[100%] text-sm' placeholderText="Select a weekday" onChange={(date) => setStartDate(date)} />
                         </div>
                         <button
-                            class="flex w-32 h-11 rounded-r-[10px] gap-2 text-white bg-green-800 hover:bg-green-700 justify-center place-items-center text-sm">
-                            <AiOutlineSearch className='icon text-[25px] text-sm' />
+                            className="flex w-32 h-11 rounded-r-[10px] gap-2 text-white bg-green-800 hover:bg-green-700 justify-center place-items-center text-sm">
+                            <AiOutlineSearch className='' />
                             Search
                         </button>
                     </div>

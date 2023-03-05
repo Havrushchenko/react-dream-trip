@@ -10,12 +10,11 @@ export function Subscribtion() {
         gap-[10px] bg-blured shadow-lg shadow-greyIsh-700">
                         <div className='flex gap-2 items-center'>
                             <input type='text' className='flex justify-center bg-transparent focus:outline-none
-    w-[100%] text-white text-sm ml-[5px]' placeholder='Enter Email Address' />
+    w-[100%] text-white text-sm ml-[40px]' placeholder='Enter Email Address' />
                         </div>
                         <button
-                        class="w-32 h-11 rounded-r-[10px] gap-2 flex text-white bg-green-800 hover:bg-green-700 justify-center place-items-center text-sm">
-                            <FaRegPaperPlane className='icon' />
-                        <div class="">Send</div>
+                        className="w-32 h-11 rounded-r-[10px] gap-2 flex text-white bg-green-800 hover:bg-green-700 justify-center place-items-center text-sm">
+                            <FaRegPaperPlane className='' />Send
                     </button>
                     </div>
         </div>
