@@ -7,7 +7,7 @@ export function Nav() {
     const categories = [
         {
             name: 'Home',
-            link: '/'
+            link: '/home'
         },
         {
             name: 'Contact',

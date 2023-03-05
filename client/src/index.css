@@ -7,3 +7,9 @@ html, body { margin: 0; padding: 0; }
 .subscription-wrapper {
   background-image: url('./assets/img/subscription-background.jpg');
 }
+
+.contact {
+  background-position: 50%;
+  background-image: url('./assets/img/background.jpg');
+  height: 300px;
+}
