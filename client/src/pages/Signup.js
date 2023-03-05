@@ -19,7 +19,7 @@ export function Signup() {
         }
     ]
     return (
-        <div className="signup flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0 mt-[100px]">
+        <div className="signup flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0 mt-[100px] mb-[100px]">
             <div className="w-full bg-white rounded-[10px] shadow-lg md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
                 <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
                     <h2 className="text-[25px] font-bold leading-tight tracking-tight text-dark md:text-2xl dark:text-white">

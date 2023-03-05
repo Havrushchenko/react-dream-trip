@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Routes } from "react-router-dom";
 import { Nav } from './components/Nav';
+import { Contact } from './pages/Contact';
 import { Signup } from './pages/Signup';
 import { Login } from './pages/Login';
 import { Search } from './components/Search';
@@ -13,6 +14,7 @@ function App() {
     <>
       <Nav></Nav>
       <Routes>
+        <Route path="/contact" element={<Contact />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
       </Routes>
