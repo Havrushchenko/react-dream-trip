@@ -1,16 +1,11 @@
 import React from "react";
 
-export function Signup() {
+export function Login() {
     const sections = [
         {
             name: 'Your email',
             type: 'email',
             placeholder: 'name@company.com'
-        },
-        {
-            name: 'Your name',
-            type: 'name',
-            placeholder: '••••••••',
         },
         {
             name: 'Password',
@@ -19,11 +14,11 @@ export function Signup() {
         }
     ]
     return (
-        <div className="signup flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0 mt-[100px]">
+        <div className="signup flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0 mt-[150px]">
             <div className="w-full bg-white rounded-[10px] shadow-lg md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
                 <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
                     <h2 className="text-[25px] font-bold leading-tight tracking-tight text-dark md:text-2xl dark:text-white">
-                        Create and account
+                        Sign in to your account
                     </h2>
                     <form className="space-y-4 md:space-y-6" action="#">
                         {sections.map((section) =>
@@ -39,7 +34,7 @@ export function Signup() {
                                 <input id="terms" aria-describedby="terms" type="checkbox" className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800" required=""></input>
                             </div>
                             <div className="ml-3 text-sm">
-                                <label for="terms" className="font-light text-gray-500 dark:text-gray-300">I accept the <a className="font-medium text-slate-600 hover:underline" href="#">Terms and Conditions</a></label>
+                                <label for="terms" className="font-light text-gray-500 dark:text-gray-300">Remember me</label>
                             </div>
                         </div>
                         <button
@@ -47,7 +42,7 @@ export function Signup() {
                             Create an account
                         </button>
                         <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                            Already have an account? <a href="/login" className="font-medium text-slate-600 hover:underline">Login here</a>
+                            Don’t have an account yet? <a href="/signup" className="font-medium text-slate-600 hover:underline">Sign up</a>
                         </p>
                     </form>
                 </div>
