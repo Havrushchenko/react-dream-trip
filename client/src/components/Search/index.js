@@ -19,11 +19,11 @@ export function Search() {
     return (
         <div className="flex flex-col items-center justify-center shadow-lg mx-[50px] my-[50px] mt-[150px]">
             <video className="video rounded-[10px] h-[500px] w-[100%] object-cover" src={backgroundVideo} muted autoPlay loop />
-            <div className="absolute mt-[-210px]">
+            <div className="absolute mt-[-200px]">
                 <h2 className="text-[25px] text-green-800 text-center">Book cheep flights<span className="text-white"> other sites simply can't find</span></h2>
             </div>
-            <div className="grid absolute gp-10 bg-grey rounded-[10px] p-[3rem] mx-[2rem] shadow-lg">
-                <form action>
+            <div className="grid absolute gp-10 bg-grey rounded-[10px] shadow-lg">
+                <form action className=" flex m-[50px] items-center justify-center">
                     <div className="flex justify-between items-center rounded-[10px] 
 gap-[10px] bg-white shadow-lg shadow-greyIsh-700">
                         {inputs.map((input) =>
@@ -43,7 +43,7 @@ w-[100%] text-sm' placeholderText="Select a weekday" onChange={(date) => setStar
                         <button
                             class="flex w-32 h-11 rounded-r-[10px] gap-2 text-white bg-green-800 hover:bg-green-700 justify-center place-items-center text-sm">
                             <AiOutlineSearch className='icon text-[25px] text-sm' />
-                            <div class="">Search</div>
+                            Search
                         </button>
                     </div>
                 </form>
