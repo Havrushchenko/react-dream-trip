@@ -17,10 +17,10 @@ export function Search() {
         }
     ];
     return (
-        <div className="flex flex-col items-center justify-center shadow-lg mx-[50px] my-[50px] mt-[150px]">
+        <div className="flex flex-col items-center justify-center shadow-lg mx-[50px] my-[50px] mt-[50px]">
             <video className="video rounded-[10px] h-[500px] w-[100%] object-cover" src={backgroundVideo} muted autoPlay loop />
             <div className="absolute mt-[-200px]">
-                <h2 className="text-[25px] text-green-800 text-center">Book cheep flights<span className="text-white"> other sites simply can't find</span></h2>
+                <h2 className="text-[25px] font-bold leading-tight tracking-tight text-green-800 text-center">Book cheep flights<span className="text-white"> other sites simply can't find</span></h2>
             </div>
             <div className="grid absolute gp-10 bg-grey rounded-[10px] shadow-lg">
                 <form action className=" flex m-[50px] items-center justify-center">
