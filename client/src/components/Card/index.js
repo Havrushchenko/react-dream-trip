@@ -5,7 +5,7 @@ import { MdAirplaneTicket } from 'react-icons/md'
 export function Card() {
     return (
         <div class="flex justify-center">
-        <div class="result-card-wrapper w-2/4 bg-white flex flex-col rounded-[10px] overflow-hidden shadow-lg">
+        <div class="result-card-wrapper w-2/4 bg-white flex flex-col rounded-[10px] overflow-hidden shadow-lg mb-[50px]">
             <div class="flex flex-row items-baseline flex-nowrap bg-grey p-2">
                 <IoIosAirplane className="icon"/>
                 <h1 class="ml-2 uppercase font-bold text-slate-600">departure</h1>
