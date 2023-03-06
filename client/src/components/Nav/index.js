@@ -29,7 +29,7 @@ export function Nav() {
     return (
         <div className="flex justify-between items-center p-[48px] bg-grey h-[100px] shadow-lg w-full">
             <h1 className="ml-2 uppercase font-bold text-slate-600 cursor-pointer">
-                <strong className="flex items-center text-green-800 gap-2">Dream<GiStripedSun className="text-slate-600" alt='logo icon'/>Trip</strong></h1>
+                <Link to='/home'><strong className="flex items-center text-green-800 gap-2">Dream<GiStripedSun className="text-slate-600" alt='logo icon'/>Trip</strong></Link></h1>
             <div className="flex gap-8 list-none">
             {categories.map((category) =>
                 (

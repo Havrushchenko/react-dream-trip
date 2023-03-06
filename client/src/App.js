@@ -4,9 +4,7 @@ import { Nav } from './components/Nav';
 import { Contact } from './pages/Contact';
 import { Signup } from './pages/Signup';
 import { Login } from './pages/Login';
-import { Search } from './components/Search';
-import { Card } from './components/Card';
-import { Subscription } from './components/Subscription';
+import { Home } from './components/Home';
 import { Footer } from './components/Footer';
 
 function App() {
@@ -14,13 +12,11 @@ function App() {
     <>
       <Nav></Nav>
       <Routes>
+        <Route path="/home" element={<Home />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
       </Routes>
-      <Search></Search>
-      <Card></Card>
-      <Subscription></Subscription>
       <Footer></Footer>
     </>
   );
