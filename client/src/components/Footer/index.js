@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import facebook from '../../assets/icons/facebook.png';
 import instagram from '../../assets/icons/instagram.png';
 import github from '../../assets/icons/github.png';
@@ -7,35 +8,44 @@ const year = new Date().getFullYear();
 export function Footer() {
     const companies = [
         {
-            name: 'About'
+            name: 'About',
+            link: '#'
         },
         {
-            name: 'Careers'
+            name: 'Careers',
+            link: '#'
         },
         {
-            name: 'Brand Center'
+            name: 'Brand Center',
+            link: '#'
         },
         {
-            name: 'Blog'
+            name: 'Blog',
+            link: '#'
         }
     ];
     const helps = [
         {
-            name: 'Discord Server'
+            name: 'Discord Server',
+            link: '#'
         },
         {
-            name: 'Contact Us'
+            name: 'Contact Us',
+            link: '/contact'
         }
     ];
     const legals = [
         {
-            name: 'Privacy Policy'
+            name: 'Privacy Policy',
+            link: '#'
         },
         {
-            name: 'Licensing'
+            name: 'Licensing',
+            link: '#'
         },
         {
-            name: 'Terms & Conditions'
+            name: 'Terms & Conditions',
+            link: '#'
         }
     ];
     const icons = [
@@ -61,7 +71,7 @@ export function Footer() {
                         {companies.map((company) =>
                         (
                             <li className="mb-4">
-                                <a href="#" className="hover:text-black">{company.name}</a>
+                                <Link to={company.link} className="hover:text-black">{company.name}</Link>
                             </li>
                         )
                         )}
@@ -73,7 +83,7 @@ export function Footer() {
                         {helps.map((help) =>
                         (
                             <li className="mb-4">
-                                <a href="#" className="hover:text-black">{help.name}</a>
+                                <Link to={help.link} className="hover:text-black">{help.name}</Link>
                             </li>
                         )
                         )}
@@ -85,7 +95,7 @@ export function Footer() {
                         {legals.map((legal) =>
                         (
                             <li className="mb-4">
-                                <a href="#" className="hover:text-black">{legal.name}</a>
+                                <Link to={legal.link} className="hover:text-black">{legal.name}</Link>
                             </li>
                         )
                         )}
