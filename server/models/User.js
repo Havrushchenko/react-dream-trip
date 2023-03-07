@@ -16,7 +16,7 @@ const userSchema = new Schema({
     password: {
         type: String,
         required: true,
-        minlength: 3
+        minlength: 4
     },
     createdAt: {
         type: Date,
