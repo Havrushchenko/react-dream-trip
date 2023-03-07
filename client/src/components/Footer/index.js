@@ -1,64 +1,54 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import facebook from '../../assets/icons/facebook.png';
-import instagram from '../../assets/icons/instagram.png';
-import github from '../../assets/icons/github.png';
+import { GrFacebookOption } from 'react-icons/gr';
+import { GrInstagram } from 'react-icons/gr';
+import { GrTwitter } from 'react-icons/gr'
 const year = new Date().getFullYear();
 
 export function Footer() {
     const companies = [
         {
-            name: 'About',
-            link: '#'
+            name: 'About'
         },
         {
-            name: 'Careers',
-            link: '#'
+            name: 'Careers'
         },
         {
-            name: 'Brand Center',
-            link: '#'
+            name: 'Brand Center'
         },
         {
-            name: 'Blog',
-            link: '#'
+            name: 'Blog'
         }
     ];
     const helps = [
         {
-            name: 'Discord Server',
-            link: '#'
+            name: 'Discord Server'
         },
         {
-            name: 'Contact Us',
-            link: '/contact'
+            name: 'Contact Us'
         }
     ];
     const legals = [
         {
-            name: 'Privacy Policy',
-            link: '#'
+            name: 'Privacy Policy'
         },
         {
-            name: 'Licensing',
-            link: '#'
+            name: 'Licensing'
         },
         {
-            name: 'Terms & Conditions',
-            link: '#'
+            name: 'Terms & Conditions'
         }
     ];
     const icons = [
         {
-            name: facebook,
+            name: <GrFacebookOption/>,
             link: '#',
         },
         {
-            name: instagram,
+            name: <GrInstagram/>,
             link: '#',
         },
         {
-            name: github,
+            name: <GrTwitter/>,
             link: '#',
         },
     ]
@@ -71,7 +61,7 @@ export function Footer() {
                         {companies.map((company) =>
                         (
                             <li className="mb-4">
-                                <Link to={company.link} className="hover:text-black">{company.name}</Link>
+                                <a href="#" className="hover:text-black">{company.name}</a>
                             </li>
                         )
                         )}
@@ -83,7 +73,7 @@ export function Footer() {
                         {helps.map((help) =>
                         (
                             <li className="mb-4">
-                                <Link to={help.link} className="hover:text-black">{help.name}</Link>
+                                <a href="#" className="hover:text-black">{help.name}</a>
                             </li>
                         )
                         )}
@@ -95,7 +85,7 @@ export function Footer() {
                         {legals.map((legal) =>
                         (
                             <li className="mb-4">
-                                <Link to={legal.link} className="hover:text-black">{legal.name}</Link>
+                                <a href="#" className="hover:text-black">{legal.name}</a>
                             </li>
                         )
                         )}
@@ -108,8 +98,8 @@ export function Footer() {
                 <div className="flex mt-4 space-x-6 sm:justify-center md:mt-0">
                     {icons.map((icon) =>
                     (
-                        <a href="#" className="">
-                            <img src={icon.name} className="w-4 h-4 bg-dark" alt='social media icon' />
+                        <a href="#">
+                            <span className="text-slate-600 hover:text-black">{icon.name}</span>
                         </a>
                     )
                     )}
