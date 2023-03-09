@@ -5,6 +5,7 @@ export const getAllUsers = () => {
       },
     });
   };
+  
 export const createUser = (userData) => {
     return fetch('/api/users/auth/signup', {
       method: 'POST',
