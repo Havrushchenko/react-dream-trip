@@ -1,10 +1,11 @@
-// import React from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { GiStripedSun } from 'react-icons/gi';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import { GrClose } from 'react-icons/gr';
 import { AiOutlineShoppingCart } from 'react-icons/ai'
 import { useState } from "react";
+import Auth from '../../utils/auth';
 
 export function Nav() {
     const [navbar, setNavbar] = useState(false);
@@ -21,16 +22,7 @@ export function Nav() {
             name: 'Help & Support',
             link: '#'
         },
-        {
-            name: 'Login',
-            link: '/login'
-        },
-        {
-            name: 'Sign Up',
-            link: '/signup'
-        },
     ];
-
     return (
         <nav className="">
             <div className="justify-between mx-auto sm:pl-[48px] sm:pr-[48px] sm:pt-[5px] sm:pb-[5px] md:items-center md:flex md:px-[48px] bg-grey shadow-lg">
@@ -65,7 +57,20 @@ export function Nav() {
                                 <li className="text-slate-600 hover:text-black cursor-pointer"><Link to={category.link}>{category.name}</Link></li>
                             )
                             )}
-                            <li className="flex items-center gap-2 text-slate-600 hover:text-black cursor-pointer"><AiOutlineShoppingCart />Checkout</li>
+                            {Auth.loggedIn() ? (
+                                <>
+                                    <li>
+                                        <button className="text-slate-600 hover:text-black cursor-pointer" onClick={Auth.logout}>Logout</button>
+                                        <p>{Auth.token}</p>
+                                    </li>
+                                </>
+                            ) : (
+                                <>
+                                    <li className="text-slate-600 hover:text-black cursor-pointer"><Link to='/login'>Login</Link></li>
+                                    <li className="text-slate-600 hover:text-black cursor-pointer"><Link to='/signup'>Signup</Link></li>
+                                </>
+                            )}
+                            <li className="flex items-center gap-2 text-slate-600 hover:text-black cursor-pointer"><AiOutlineShoppingCart />Cart</li>
                         </div>
                     </div>
                 </div>
