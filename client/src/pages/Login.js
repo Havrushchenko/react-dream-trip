@@ -36,10 +36,10 @@ export function Login() {
           } catch (err) {
             console.error(err);
           }
-        //   setFormData({
-        //     email: '',
-        //     password: '',
-        //   });
+          setFormData({
+            email: '',
+            password: '',
+          });
       };
 
     const sections = [
