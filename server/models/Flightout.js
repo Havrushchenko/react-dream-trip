@@ -2,10 +2,10 @@ const { Schema, model } = require('mongoose');
 
 const flightoutSchema = new Schema(
     {
-        flight_number: {
-            type: String,
-            required: true,
-        },
+        // flight_number: {
+        //     type: String,
+        //     required: true,
+        // },
         departure_city: {
             type: String,
             required: true,
