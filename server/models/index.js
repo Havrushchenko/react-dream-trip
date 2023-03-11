@@ -1,3 +1,5 @@
 const User = require('./User');
+const Passenger = require('./Passenger');
+const FlightCheckout = require('./FlightCheckout');
 
-module.exports = { User };
+module.exports = { User, Passenger, FlightCheckout };
