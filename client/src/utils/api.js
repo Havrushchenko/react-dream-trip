@@ -25,3 +25,21 @@ export const loginUser = (userData) => {
     body: JSON.stringify(userData),
   });
 };
+
+export const getAllFlightouts = () => {
+  return fetch('/api/flightouts', {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+};
+
+export const findFlightout = (flightoutData) => {
+  return fetch('/api/flightouts', {
+    method: 'POST',
+    body: JSON.stringify(flightoutData),
+    headers: {
+      'Content-Type': 'application/json',
+    }
+  });
+};
