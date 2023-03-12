@@ -1,8 +1,29 @@
 import React, { useState } from 'react'
 import { createUser } from '../utils/api';
 import Auth from '../utils/auth';
+import { motion } from "framer-motion"
 
 export function Signup() {
+    const wrapper = {
+        hidden: { opacity: 0 },
+        show: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 1,
+                delay: 0.1
+            }
+        }
+    };
+    const container = {
+        hidden: { opacity: 0 },
+        show: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.5,
+                delay: 0.3
+            }
+        }
+    };
 	const [formData, setFormData] = useState({
         username: '',
 		email: '',
@@ -47,8 +68,8 @@ export function Signup() {
 	}
 
 	return (
-        <div className="signup flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0 mt-[100px] mb-[100px]">
-            <div className="w-full bg-white rounded-[10px] shadow-lg md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+        <motion.div variants={wrapper} initial="hidden" animate="show"  className="signup flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0">
+            <motion.div variants={container} initial="hidden" animate="show" className="w-full bg-white rounded-[10px] shadow-lg sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700 mt-[120px] mb-[120px]">
                 <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
                     <h2 className="text-[25px] font-bold leading-tight tracking-tight text-dark md:text-2xl dark:text-white">
                         Create an account
@@ -67,12 +88,6 @@ export function Signup() {
                             <input value={formData.password} name='password' type='password' placeholder='••••••••' onChange={handleInputChange} className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" required=""></input>
                         </div>
                         <div className="flex items-start">
-                            <div className="flex items-center h-5">
-                                <input id="terms" aria-describedby="terms" type="checkbox" className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800" required=""></input>
-                            </div>
-                            <div className="ml-3 text-sm">
-                                <label for="terms" className="font-light text-gray-500 dark:text-gray-300">I accept the <a className="font-medium text-slate-600 hover:underline" href="#">Terms and Conditions</a></label>
-                            </div>
                         </div>
                         {errorMessage && (
                             <div>
@@ -88,7 +103,7 @@ export function Signup() {
                         </p>
                     </form>
                 </div>
-            </div>
-        </div>
+            </motion.div>
+        </motion.div>
     );
 }

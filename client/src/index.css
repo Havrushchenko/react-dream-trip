@@ -8,8 +8,15 @@ html, body { margin: 0; padding: 0; }
   background-image: url('./assets/img/subscription-background.jpg');
 }
 
-.contact {
-  background-position: 50%;
-  background-image: url('./assets/img/background.jpg');
-  height: 300px;
+.login,
+.signup {
+  background-size: cover;
+  background-image: url('./assets/img/plane.jpg');
 }
+
+.contact {
+  background-size: cover;
+  background-image: url('./assets/img/contact.jpg');
+}
+
+
