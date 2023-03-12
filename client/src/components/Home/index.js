@@ -1,13 +1,26 @@
 import { Search } from "../Search";
-import { Card } from "../Card";
+// import { Card } from "../Card";
 import { Subscription } from "../Subscription";
+import { motion } from "framer-motion";
 
 export function Home() {
+    const container = {
+        hidden: { opacity: 0 },
+        show: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 1,
+                delay: 0.5
+            }
+        }
+    };
     return (
         <>
+        <motion.div variants={container} initial="hidden" animate="show">
         <Search/>
-        <Card/>
+        {/* <Card/> */}
         <Subscription/>
+        </motion.div>
         </>
     );
 }

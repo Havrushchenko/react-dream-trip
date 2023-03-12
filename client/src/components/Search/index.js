@@ -8,6 +8,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import backgroundVideo from '../../assets/img/background-video.mp4';
 import { findFlightout } from '../../utils/api';
 import Auth from '../../utils/auth';
+import { Card } from '../Card/index';
 
 export function Search() {
     const [startDate, setStartDate] = useState(new Date());
@@ -30,8 +31,18 @@ export function Search() {
             if (!response.ok) {
                 throw new Error('something went wrong!');
             }
-            const flightouts = await response.json();
-            console.log(flightouts, startDate);
+            const { flightouts } = await response.json();
+            const flightoutData = flightouts.map((flightout) => ({
+                airline: flightout.airline,
+                flight_number: flightout.flight_number,
+                departure_city: flightout.departure_city,
+                destination_city: flightout.destination_city,
+                date: flightout.date,
+                departure_airport: flightout.departure_airport,
+                destination_airport: flightout.destination_airport,
+                price: flightout.price
+            }));
+            console.log(flightoutData, startDate);
         } catch (err) {
             console.error(err);
         }
@@ -90,7 +101,7 @@ w-[100%] text-sm' placeholderText="Select a weekday"
                         <p className="text-white">Please <Link className="font-bold hover:text-green-800" to='/login'>login</Link> or create a <Link className="font-bold hover:text-green-800" to='/signup'>new account</Link> to use all the dvantages of out service.</p>
                     </div>
                 </>
-                                            )}
+            )} 
         </div>
     );
 }
