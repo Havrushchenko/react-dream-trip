@@ -2,6 +2,10 @@ const { Schema, model } = require('mongoose');
 
 const flightoutSchema = new Schema(
     {
+        airline: {
+            type: String,
+            required: true,
+        },
         flight_number: {
             type: String,
             required: true,
@@ -14,15 +18,7 @@ const flightoutSchema = new Schema(
             type: String,
             required: true,
         },
-        departure_time: {
-            type: String,
-            required: true,
-        },
-        departure_day: {
-            type: String,
-            required: true,
-        },
-        arrival_time: {
+        date: {
             type: String,
             required: true,
         },

@@ -23,6 +23,16 @@ export function Nav() {
             link: '#'
         },
     ];
+    const autorisations = [
+        {
+            name: 'Login',
+            link: '/login'
+        },
+        {
+            name: 'Signup',
+            link: '/signup'
+        },
+    ];
     return (
         <nav className="">
             <div className="justify-between mx-auto sm:pl-[48px] sm:pr-[48px] sm:pt-[5px] sm:pb-[5px] md:items-center md:flex md:px-[48px] bg-grey shadow-lg">
@@ -61,13 +71,15 @@ export function Nav() {
                                 <>
                                     <li>
                                         <button className="text-slate-600 hover:text-black cursor-pointer" onClick={Auth.logout}>Logout</button>
-                                        <p>{Auth.token}</p>
                                     </li>
                                 </>
                             ) : (
                                 <>
-                                    <li className="text-slate-600 hover:text-black cursor-pointer"><Link to='/login'>Login</Link></li>
-                                    <li className="text-slate-600 hover:text-black cursor-pointer"><Link to='/signup'>Signup</Link></li>
+                                    {autorisations.map((category) =>
+                                    (
+                                        <li className="text-slate-600 hover:text-black cursor-pointer"><Link to={category.link}>{category.name}</Link></li>
+                                    )
+                                    )}
                                 </>
                             )}
                             <li className="flex items-center gap-2 text-slate-600 hover:text-black cursor-pointer"><AiOutlineShoppingCart />Cart</li>

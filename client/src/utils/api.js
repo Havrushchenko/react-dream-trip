@@ -44,19 +44,7 @@ export const findFlightout = (flightoutData) => {
   });
 };
 
-// export const findFlightout = (flightoutData) => {
-//   const options = {
-//     method: 'GET',
-//     body: JSON.stringify(flightoutData),
-//   };
-  
-//   fetch('https://www.googleapis.com/books/v1/volumes?q=query')
-//     .then(response => response.json())
-//     .then(response => console.log(response))
-//     .catch(err => console.error(err));
-// }
-
-// export const findFlightout = () => {
+// export const createFlightout = () => {
 //   const options = {
 //     method: 'GET',
 //     headers: {
@@ -69,4 +57,5 @@ export const findFlightout = (flightoutData) => {
 //     .then(response => console.log(response))
 //     .catch(err => console.error(err));
 // }
+
     
