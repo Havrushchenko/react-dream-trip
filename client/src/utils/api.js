@@ -35,11 +35,38 @@ export const getAllFlightouts = () => {
 };
 
 export const findFlightout = (flightoutData) => {
-  return fetch('/api/flightouts', {
+  return fetch('/api/flightouts/search', {
     method: 'POST',
-    body: JSON.stringify(flightoutData),
     headers: {
       'Content-Type': 'application/json',
-    }
+    },
+    body: JSON.stringify(flightoutData),
   });
 };
+
+// export const findFlightout = (flightoutData) => {
+//   const options = {
+//     method: 'GET',
+//     body: JSON.stringify(flightoutData),
+//   };
+  
+//   fetch('https://www.googleapis.com/books/v1/volumes?q=query')
+//     .then(response => response.json())
+//     .then(response => console.log(response))
+//     .catch(err => console.error(err));
+// }
+
+// export const findFlightout = () => {
+//   const options = {
+//     method: 'GET',
+//     headers: {
+//       'X-RapidAPI-Key': '8748a9f6e0msh46c36b26f7e0d08p19406djsne19cef7ec6ae',
+//       'X-RapidAPI-Host': 'flight-info-api.p.rapidapi.com'
+//     }
+//   };
+//   fetch('https://flight-info-api.p.rapidapi.com/schedules?version=v1&DepartureDate=2023-03-17&ArrivalDate=2023-03-17', options)
+//     .then(response => response.json())
+//     .then(response => console.log(response))
+//     .catch(err => console.error(err));
+// }
+    

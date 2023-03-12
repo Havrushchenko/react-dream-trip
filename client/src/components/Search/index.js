@@ -18,29 +18,30 @@ export function Search() {
         }
     ];
     const [formData, setFormData] = useState({
-		departure_city: '',
-		destination_city: ''
-	});
+        departure_city: '',
+        destination_city: '',
+        departure_day: ''
+    });
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
         setFormData({ ...formData, [name]: value });
-      };
+    };
 
-      const handleFormSubmit = async (event) => {
-        event.preventDefault();    
+    const handleFormSubmit = async (event) => {
+        event.preventDefault();
         try {
             const response = await findFlightout(formData);
-      
+
             if (!response.ok) {
-              throw new Error('something went wrong!');
-            } 
+                throw new Error('something went wrong!');
+            }
             const flightouts = await response.json();
             console.log(flightouts);
-          } catch (err) {
+        } catch (err) {
             console.error(err);
-          }
-      };
+        }
+    };
 
     return (
         <div className="flex flex-col items-center justify-center shadow-lg mx-[50px] my-[50px] mt-[50px]">
@@ -52,19 +53,19 @@ export function Search() {
                 <form action className=" flex m-[50px] items-center justify-center">
                     <div className="flex justify-between items-center rounded-[10px] 
 gap-[10px] bg-white shadow-lg shadow-greyIsh-700">
-                            <div className='flex gap-2 items-center'>
-                                <IoIosAirplane className='text-[25px] ml-[10px]' />
-                                <input value={formData.departure_city} onChange={handleInputChange} name='departure_city' type='text' className='bg-transparent focus:outline-none
+                        <div className='flex gap-2 items-center'>
+                            <IoIosAirplane className='text-[25px] ml-[10px]' />
+                            <input value={formData.departure_city} onChange={handleInputChange} name='departure_city' type='text' className='bg-transparent focus:outline-none
 w-[100%] text-sm' placeholder='' />
-                            </div>
-                            <div className='flex gap-2 items-center'>
-                                <IoIosAirplane className='text-[25px] ml-[10px]' />
-                                <input value={formData.destination_city} onChange={handleInputChange} name='destination_city' type='text' className='bg-transparent focus:outline-none
+                        </div>
+                        <div className='flex gap-2 items-center'>
+                            <IoIosAirplane className='text-[25px] ml-[10px]' />
+                            <input value={formData.destination_city} onChange={handleInputChange} name='destination_city' type='text' className='bg-transparent focus:outline-none
 w-[100%] text-sm' placeholder='' />
-                            </div>
+                        </div>
                         <div className='flex gap-2 items-center'>
                             <BsCalendar3Week className='text-[25px]' />
-                            <DatePicker className='bg-transparent focus:outline-none
+                            <DatePicker value={formData.departure_day} className='bg-transparent focus:outline-none
 w-[100%] text-sm' placeholderText="Select a weekday" onChange={(date) => setStartDate(date)} />
                         </div>
                         <button type='button' onClick={handleFormSubmit}
