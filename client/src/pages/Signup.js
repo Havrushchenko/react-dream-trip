@@ -10,7 +10,7 @@ export function Signup() {
             opacity: 1,
             transition: {
                 staggerChildren: 1,
-                delay: 0.5
+                delay: 0.1
             }
         }
     };

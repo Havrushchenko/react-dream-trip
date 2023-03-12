@@ -8,7 +8,7 @@ export function Contact() {
             opacity: 1,
             transition: {
                 staggerChildren: 1,
-                delay: 0.5
+                delay: 0.1
             }
         }
     };
@@ -22,6 +22,7 @@ export function Contact() {
             }
         }
     };
+    
     const [userSubject, setUserSubject] = useState('');
     const [userMessage, setUserMessage] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
