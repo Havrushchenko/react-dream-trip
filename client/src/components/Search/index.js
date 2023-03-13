@@ -120,7 +120,7 @@ w-[100%] text-sm' placeholderText="Select a weekday"
                 <>
                     <div className="absolute">
                         <h2 className="text-[25px] font-bold leading-tight tracking-tight text-green-800 text-center">Book cheep flights<span className="text-white"> other sites simply can't find</span></h2>
-                        <p className="text-white">Please <Link className="font-bold hover:text-green-800" to='/login'>login</Link> or create a <Link className="font-bold hover:text-green-800" to='/signup'>new account</Link> to use all the advantages of out service.</p>
+                        <p className="text-white">Please <Link className="font-bold hover:text-green-800" to='/login'>login</Link> or create a <Link className="font-bold hover:text-green-800" to='/signup'>new account</Link> to use all the advantages of our service.</p>
                     </div>
                 </>
             )}
