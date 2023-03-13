@@ -1,28 +1,6 @@
 import { useState } from 'react';
-import { motion } from "framer-motion"
 
 export function Contact() {
-    const wrapper = {
-        hidden: { opacity: 0 },
-        show: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 1,
-                delay: 0.1
-            }
-        }
-    };
-    const container = {
-        hidden: { opacity: 0 },
-        show: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.5,
-                delay: 0.3
-            }
-        }
-    };
-    
     const [userSubject, setUserSubject] = useState('');
     const [userMessage, setUserMessage] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
@@ -57,8 +35,8 @@ export function Contact() {
 
     return (
         <>
-            <motion.div variants={wrapper} initial="hidden" animate="show" className="contact flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0">
-                <motion.div variants={container} initial="hidden" animate="show" className="w-full bg-white rounded-[10px] shadow-lg sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700 mt-[180px] mb-[175px]">
+            <div className="signup flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0 mt-[165px] mb-[165px]">
+                <div className="w-full bg-white rounded-[10px] shadow-lg md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
                     <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
                         <h2 className="text-[25px] font-bold leading-tight tracking-tight text-dark md:text-2xl dark:text-white">
                             Contact Us
@@ -83,8 +61,8 @@ export function Contact() {
                             </button>
                         </form>
                     </div>
-                </motion.div>
-            </motion.div>
+                </div>
+            </div>
         </>
     );
 }

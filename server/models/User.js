@@ -6,21 +6,17 @@ const userSchema = new Schema(
     username: {
       type: String,
       required: true,
-      },
+    },
     email: {
       type: String,
       required: true,
       unique: true,
       match: [/.+@.+\..+/, 'Must match an email address!']
-      },
+    },
     password: {
       type: String,
       required: true,
-      },
-    flights: {
-      type: Schema.Types.ObjectId,
-      ref: 'FlightCheckout'
-      }
+    },
   },
   {
     toJSON: {
