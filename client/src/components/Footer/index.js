@@ -1,7 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { GrFacebookOption } from 'react-icons/gr';
 import { GrInstagram } from 'react-icons/gr';
 import { GrTwitter } from 'react-icons/gr'
+import Auth from '../../utils/auth';
 const year = new Date().getFullYear();
 
 export function Footer() {
@@ -24,7 +26,8 @@ export function Footer() {
             name: 'Discord Server'
         },
         {
-            name: 'Contact Us'
+            name: 'Contact Us',
+            link: '/contact'
         }
     ];
     const legals = [
@@ -40,15 +43,15 @@ export function Footer() {
     ];
     const icons = [
         {
-            name: <GrFacebookOption/>,
+            name: <GrFacebookOption />,
             link: '#',
         },
         {
-            name: <GrInstagram/>,
+            name: <GrInstagram />,
             link: '#',
         },
         {
-            name: <GrTwitter/>,
+            name: <GrTwitter />,
             link: '#',
         },
     ]
@@ -70,13 +73,21 @@ export function Footer() {
                 <div>
                     <h2 className="mb-6 uppercase font-bold text-slate-600 uppercase">Help & Support</h2>
                     <ul className="text-slate-600">
-                        {helps.map((help) =>
-                        (
+                        {Auth.loggedIn() ? (
+                            <>
+                                {helps.map((help) =>
+                                (
+                                    <li className="mb-4">
+                                        <a className="hover:text-black"><Link to={help.link}>{help.name}</Link></a>
+                                    </li>
+                                )
+                                )}
+                            </>
+                        ) : (
                             <li className="mb-4">
-                                <a href="#" className="hover:text-black">{help.name}</a>
-                            </li>
-                        )
-                        )}
+                            <a href="#" className="hover:text-black">Discord Server</a>
+                        </li>
+                            )}
                     </ul>
                 </div>
                 <div>
