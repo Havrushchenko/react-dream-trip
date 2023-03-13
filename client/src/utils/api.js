@@ -43,3 +43,21 @@ export const findFlightout = (flightoutData) => {
     body: JSON.stringify(flightoutData),
   });
 };
+
+export const getAllMessages = () => {
+  return fetch('/api/messages/', {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+};
+
+export const createMessage = (messageData) => {
+  return fetch('/api/message/', {
+    method: 'POST',
+    body: JSON.stringify(messageData),
+    headers: {
+      'Content-Type': 'application/json',
+    }
+  });
+};
