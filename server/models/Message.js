@@ -3,6 +3,18 @@ const dateFormat = require('../utils/dateFormat');
 
 const messageSchema = new Schema(
     {
+        firstname: {
+            type: String,
+            required: true,
+        },
+        lastname: {
+            type: String,
+            required: true,
+        },
+        email: {
+            type: String,
+            required: true,
+        },
         subject: {
             type: String,
             required: true,
@@ -14,9 +26,15 @@ const messageSchema = new Schema(
         createdAt: {
             type: Date,
             default: Date.now,
-            get: timestamp => dateFormat(timestamp)
+            get: (createdAtVal) => dateFormat(createdAtVal)
         },
     },
+    {
+        toJSON: {
+            virtuals: true
+        },
+        id: false
+    }
 );
 
 const Message = model('Message', messageSchema);
