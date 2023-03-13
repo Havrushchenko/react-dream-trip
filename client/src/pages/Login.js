@@ -63,16 +63,20 @@ export function Login() {
         });
     };
 
-    const sections = [
+    const categories = [
         {
-            name: 'Your email',
+            categoryname: 'Your email',
+            name: 'email',
             type: 'email',
-            placeholder: 'name@company.com'
+            placeholder: 'name@company.com',
+            value: formData.email
         },
         {
-            name: 'Password',
+            categoryname: 'Password',
+            name: 'password',
             type: 'password',
             placeholder: '••••••••',
+            value: formData.password
         }
     ]
     return (
@@ -83,14 +87,14 @@ export function Login() {
                         Sign in to your account
                     </h2>
                     <form className="space-y-4 md:space-y-6" action="#">
-                        <div>
-                            <label className="block mb-2 text-sm font-medium text-slate-600">Your email</label>
-                            <input value={formData.email} name='email' type='email' placeholder='name@company.com' onChange={handleInputChange} className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" required=""></input>
-                        </div>
-                        <div>
-                            <label className="block mb-2 text-sm font-medium text-slate-600">Password</label>
-                            <input value={formData.password} name='password' type='password' placeholder='••••••••' onChange={handleInputChange} className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" required=""></input>
-                        </div>
+                    {categories.map((category) =>
+                        (
+                            <div>
+                                <label className="block mb-2 text-sm font-medium text-slate-600">{category.categoryname}</label>
+                                <input value={category.value} name={category.name} type={category.type} placeholder={category.placeholder} onChange={handleInputChange} className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" required=""></input>
+                            </div>
+                        )
+                        )}
                         <div className="flex items-start">
                         </div>
                         {errorMessage && (

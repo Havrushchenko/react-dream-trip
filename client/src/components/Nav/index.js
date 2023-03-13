@@ -19,16 +19,13 @@ export function Nav() {
             setHidden(true);
         }
     }
-
     useEffect(() => {
         return scrollY.onChange(() => update());
     });
-
     const variants = {
         visible: { opacity: 1, y: 0 },
         hidden: { opacity: 0, y: -25 }
     };
-
     const [navbar, setNavbar] = useState(false);
     const categories = [
         {
@@ -36,15 +33,10 @@ export function Nav() {
             link: '/home'
         },
         {
-            name: 'Contact',
-            link: '/contact'
-        },
-        {
             name: 'Help & Support',
             link: '#'
         },
     ];
-
     const autorisations = [
         {
             name: 'Login',
@@ -55,7 +47,6 @@ export function Nav() {
             link: '/signup'
         },
     ];
-    
     return (
         <motion.div className="" variants={variants} animate={hidden ? "hidden" : "visible"}
             transition={{ ease: [0., 0.25, 0.3, 1], duration: 0.6 }}>
@@ -93,9 +84,12 @@ export function Nav() {
                             )}
                             {Auth.loggedIn() ? (
                                 <>
+                                <li className="text-slate-600 hover:text-black cursor-pointer"><Link to='/contact'>Contact</Link></li>
                                     <li>
-                                        <button className="text-slate-600 hover:text-black cursor-pointer" onClick={Auth.logout}>Logout</button>
+                                        <button className="text-slate-600 hover:text-black cursor-pointer" onClick={Auth.logout}>Logout</button>     
                                     </li>
+                                    <li className="flex items-center gap-2 text-slate-600 hover:text-black cursor-pointer"><AiOutlineShoppingCart />Cart</li>
+
                                 </>
                             ) : (
                                 <>
@@ -106,7 +100,6 @@ export function Nav() {
                                     )}
                                 </>
                             )}
-                            <li className="flex items-center gap-2 text-slate-600 hover:text-black cursor-pointer"><AiOutlineShoppingCart />Cart</li>
                         </div>
                     </div>
                 </div>
