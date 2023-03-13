@@ -9,6 +9,7 @@ import backgroundVideo from '../../assets/img/background-video.mp4';
 import { findFlightout } from '../../utils/api';
 import Auth from '../../utils/auth';
 import { motion, useScroll } from "framer-motion";
+import { Card } from "../Card";
 
 export function Search() {
     const { scrollY } = useScroll();
@@ -52,18 +53,18 @@ export function Search() {
                 throw new Error('something went wrong!');
             }
             const flightouts = await response.json();
-            console.log(flightouts, startDate);
+            console.log(flightouts, startDate)
             // const flightoutData = flightouts.map((flightout) => ({
-            //     airline: flightout.airline,
+            //     // airline: flightout.airline,
             //     flight_number: flightout.flight_number,
-            //     departure_city: flightout.departure_city,
-            //     destination_city: flightout.destination_city,
-            //     date: flightout.date,
-            //     departure_airport: flightout.departure_airport,
-            //     destination_airport: flightout.destination_airport,
-            //     price: flightout.price
+            //     // departure_city: flightout.departure_city,
+            //     // destination_city: flightout.destination_city,
+            //     // date: flightout.date,
+            //     // departure_airport: flightout.departure_airport,
+            //     // destination_airport: flightout.destination_airport,
+            //     // price: flightout.price
             // }));
-            // console.log(flightoutData, startDate);
+            // console.log(flightouts, startDate);
         } catch (err) {
             console.error(err);
         }
@@ -100,12 +101,8 @@ w-[100%] text-sm' placeholder='Destination City' autocomplete="off" />
                                 <div className='flex gap-2 items-center'>
                                     <BsCalendar3Week className='text-[25px]' />
                                     <DatePicker className='bg-transparent focus:outline-none
-w-[100%] text-sm' placeholderText="Select a weekday"
-                                        dateFormat="MMMM d, yyyy"
-                                        selected={startDate}
-                                        selectsStart
-                                        startDate={startDate}
-                                        onChange={date => setStartDate(date)} />
+w-[100%] text-sm' placeholderText="Select a weekday" dateFormat="MMMM d, yyyy" selected={startDate} selectsStart
+                                        startDate={startDate} onChange={date => setStartDate(date)} />
                                 </div>
                                 <button type='button' onClick={handleFormSubmit}
                                     className="flex w-32 h-11 rounded-r-[10px] gap-2 text-white bg-green-800 hover:bg-green-700 justify-center place-items-center text-sm">

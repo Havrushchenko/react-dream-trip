@@ -1,5 +1,5 @@
 import { Search } from "../Search";
-import { Card } from "../Card";
+// import { Card } from "../Card";
 import { Subscription } from "../Subscription";
 import { motion, useScroll } from "framer-motion";
 
@@ -19,7 +19,7 @@ export function Home() {
         <>
             <motion.div variants={container} initial="hidden" animate="show">
                 <Search />
-                <Card />
+                {/* <Card /> */}
                 <Subscription />
             </motion.div>
         </>
