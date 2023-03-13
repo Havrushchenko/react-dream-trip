@@ -68,13 +68,15 @@ export function Login() {
             categoryname: 'Your email',
             name: 'email',
             type: 'email',
-            placeholder: 'name@company.com'
+            placeholder: 'name@company.com',
+            value: formData.email
         },
         {
             categoryname: 'Password',
             name: 'password',
             type: 'password',
             placeholder: '••••••••',
+            value: formData.password
         }
     ]
     return (

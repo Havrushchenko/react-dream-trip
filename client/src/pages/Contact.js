@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
+import { createMessage } from '../utils/api';
 
 export function Contact() {
     const wrapper = {
@@ -23,36 +24,42 @@ export function Contact() {
         }
     };
     
-    const [userSubject, setUserSubject] = useState('');
-    const [userMessage, setUserMessage] = useState('');
+    const [formData, setFormData] = useState({
+        subject: '',
+        message: ''
+    });
     const [errorMessage, setErrorMessage] = useState('');
 
-    const handleInputChange = (e) => {
-        const { target } = e;
-        const inputType = target.name;
-        const inputValue = target.value;
-
-        if (inputType === 'userSubject') {
-            setUserSubject(inputValue);
-        } else {
-            setUserMessage(inputValue);
-        }
+    const handleInputChange = (event) => {
+        const { name, value } = event.target;
+        setFormData({ ...formData, [name]: value });
     };
 
-    const handleFormSubmit = (e) => {
-        e.preventDefault();
-
-        if (!userSubject) {
+    const handleFormSubmit = async (event) => {
+        event.preventDefault();
+        if (!formData.subject) {
             setErrorMessage('Subject is required');
             return;
-        } else if (!userMessage) {
+        } else if (!formData.message) {
             setErrorMessage('Message is required');
             return;
+        } setErrorMessage('Your message has been sent. Thank you!')
+
+        try {
+            const response = await createMessage(formData);
+
+            if (!response.ok) {
+                throw new Error('something went wrong!');
+            }
+            const message = await response.json();
+            console.log(message);
+        } catch (err) {
+            console.error(err);
         }
-        setErrorMessage(`Your message has been sent`);
-        setUserSubject('');
-        setUserMessage('');
-        setUserMessage('');
+        setFormData({
+            subject: '',
+            message: '',
+        });
     };
 
     return (
@@ -66,11 +73,11 @@ export function Contact() {
                         <form className="space-y-4 md:space-y-6" action="#">
                             <div>
                                 <label className="block mb-2 text-sm font-medium text-slate-600">Subject</label>
-                                <input value={userSubject} onChange={handleInputChange} name="userSubject" placeholder="Let us know how we can hellp you" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" required=""></input>
+                                <input value={formData.subject} onChange={handleInputChange} name="subject" placeholder="Let us know how we can hellp you" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" required=""></input>
                             </div>
                             <div class="sm:col-span-2">
                                 <label for="message" class="block mb-2 text-sm font-medium text-slate-600">Your message</label>
-                                <textarea value={userMessage} onChange={handleInputChange} name="textarea" placeholder="Leave a comment..." rows="3" style={{ resize: 'none' }} class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" required=""></textarea>
+                                <textarea value={formData.message} onChange={handleInputChange} name="message" placeholder="Leave a comment..." rows="3" style={{ resize: 'none' }} class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" required=""></textarea>
                             </div>
                             {errorMessage && (
                             <div>

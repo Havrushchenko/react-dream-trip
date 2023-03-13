@@ -53,7 +53,7 @@ export const getAllMessages = () => {
 };
 
 export const createMessage = (messageData) => {
-  return fetch('/api/message/', {
+  return fetch('/api/messages/', {
     method: 'POST',
     body: JSON.stringify(messageData),
     headers: {
