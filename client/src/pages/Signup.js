@@ -23,7 +23,7 @@ export function Signup() {
                 delay: 0.3
             }
         }
-    };    
+    };
     const [formData, setFormData] = useState({
         username: '',
         email: '',
@@ -93,30 +93,31 @@ export function Signup() {
                     <h2 className="text-[25px] font-bold leading-tight tracking-tight text-dark md:text-2xl dark:text-white">
                         Create an account
                     </h2>
-                    <form className="space-y-4 md:space-y-6" action="#">
-                        {categories.map((category) =>
-                        (
-                            <div>
-                                <label className="block mb-2 text-sm font-medium text-slate-600">{category.categoryname}</label>
-                                <input value={category.value} name={category.name} type={category.type} placeholder={category.placeholder} onChange={handleInputChange} className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" required=""></input>
+                    {categories.map((category) =>
+                    (
+                        <div className="flex flex-wrap -mx-3 mb-6">
+                            <div className="w-full px-3">
+
+                                <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">{category.categoryname}</label>
+                                <input value={category.value} name={category.name} type={category.type} placeholder={category.placeholder} onChange={handleInputChange} autocomplete="off" className="appearance-none block w-full bg-gray-50 text-sm text-gray-700 border border-gray-200 rounded py-2 px-2 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"></input>
                             </div>
-                        )
-                        )}
-                        <div className="flex items-start">
                         </div>
-                        {errorMessage && (
-                            <div>
-                                <p className="text-sm font-medium text-slate-600">{errorMessage}</p>
-                            </div>
-                        )}
-                        <button type='button' onClick={handleFormSubmit}
-                            className="w-full h-11 rounded-[10px] gap-2 flex text-white bg-green-800 hover:bg-green-700 justify-center place-items-center text-sm">
-                            Create an account
-                        </button>
-                        <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                            Already have an account? <a href="/login" className="font-medium text-slate-600 hover:underline">Login here</a>
-                        </p>
-                    </form>
+                    )
+                    )}
+                    <div className="flex items-start">
+                    </div>
+                    {errorMessage && (
+                        <div>
+                            <p className="text-sm font-medium text-slate-600">{errorMessage}</p>
+                        </div>
+                    )}
+                    <button type='button' onClick={handleFormSubmit}
+                        className="w-full h-11 rounded-[10px] gap-2 flex text-white bg-green-800 hover:bg-green-700 justify-center place-items-center text-sm">
+                        Create an account
+                    </button>
+                    <p className="text-sm font-light text-gray-500 dark:text-gray-400">
+                        Already have an account? <a href="/login" className="font-medium text-slate-600 hover:underline">Login here</a>
+                    </p>
                 </div>
             </motion.div>
         </motion.div>

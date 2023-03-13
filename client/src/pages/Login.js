@@ -86,12 +86,14 @@ export function Login() {
                     <h2 className="text-[25px] font-bold leading-tight tracking-tight text-dark md:text-2xl dark:text-white">
                         Sign in to your account
                     </h2>
-                    <form className="space-y-4 md:space-y-6" action="#">
-                    {categories.map((category) =>
+                        {categories.map((category) =>
                         (
-                            <div>
-                                <label className="block mb-2 text-sm font-medium text-slate-600">{category.categoryname}</label>
-                                <input value={category.value} name={category.name} type={category.type} placeholder={category.placeholder} onChange={handleInputChange} className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" required=""></input>
+                            <div class="flex flex-wrap -mx-3 mb-6">
+                                <div class="w-full px-3">
+
+                                    <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">{category.categoryname}</label>
+                                    <input value={category.value} name={category.name} type={category.type} placeholder={category.placeholder} onChange={handleInputChange} autocomplete="off" className="appearance-none block w-full bg-gray-50 text-sm text-gray-700 border border-gray-200 rounded py-2 px-2 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"></input>
+                                </div>
                             </div>
                         )
                         )}
@@ -109,7 +111,6 @@ export function Login() {
                         <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                             Don’t have an account yet? <a href="/signup" className="font-medium text-slate-600 hover:underline">Sign up</a>
                         </p>
-                    </form>
                 </div>
             </motion.div>
         </motion.div>

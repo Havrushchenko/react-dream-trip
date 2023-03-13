@@ -136,9 +136,9 @@ export function Contact() {
                         </div>
                         {contactcategories.map((contactcategory) =>
                         (
-                            <div class="flex flex-wrap -mx-3 mb-6">
-                                <div class="w-full px-3">
-                                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
+                            <div className="flex flex-wrap -mx-3 mb-6">
+                                <div className="w-full px-3">
+                                    <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
                                         {contactcategory.categoryname}
                                     </label>
                                     <input value={contactcategory.value} name={contactcategory.name} type={contactcategory.type} placeholder={contactcategory.placeholder} onChange={handleInputChange} autocomplete="off" class="appearance-none block w-full bg-gray-50 text-sm text-gray-700 border border-gray-200 rounded py-2 px-2 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"></input>
@@ -148,9 +148,9 @@ export function Contact() {
                         )}
                         {messages.map((message) =>
                         (
-                            <div class="flex flex-wrap -mx-3 mb-6">
-                                <div class="w-full px-3">
-                                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
+                            <div className="flex flex-wrap -mx-3 mb-6">
+                                <div className="w-full px-3">
+                                    <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
                                         {message.categoryname}
                                     </label>
                                     <textarea value={message.value} name={message.name} type={message.type} placeholder={message.placeholder} onChange={handleInputChange} class="appearance-none block w-full bg-gray-50 text-sm text-gray-700 border border-gray-200 rounded py-2 px-2 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" rows="3" style={{ resize: 'none' }}></textarea>
