@@ -1,11 +1,12 @@
 const router = require('express').Router();
 const {
   getFlightsbyId,
-  updateFlight,
+  bookFlight,
   deleteFlight
-} = require('../../controllers/flightcheckout-routes');
+} = require('../../controllers/flightcheckout-controller');
 
-router.route('/:userid/flights/').get(getFlightsbyId);
-router.route('/:userid/flights/:flightid').post(updateFlight).delete(deleteFlight);
+router.route('/flights/').put(bookFlight);
+router.route('/flights/:flightid').get(getFlightsbyId);
+router.route('/flights/:flightid').delete(deleteFlight);
 
 module.exports = router;

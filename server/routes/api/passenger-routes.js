@@ -3,9 +3,10 @@ const {
   addPassenger,
   updatePassenger,
   deletePassenger
-} = require('../../controllers/passenger-routes');
+} = require('../../controllers/passenger-controller');
 
-router.route('/:userid/flights/:flightid/').post(addPassenger).
-router.route('/:userid/flights/:flightid/:passengerid').put(updatePassenger).delete(deletePassenger)
+router.route('/:userid/flights/:flightid/').post(addPassenger)
+router.route('/:userid/flights/:flightid/:passengerid').put(updatePassenger)
+router.route('/:userid/flights/:flightid/:passengerid').delete(deletePassenger)
 
 module.exports = router;

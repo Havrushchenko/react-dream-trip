@@ -1,4 +1,3 @@
-const mongoose = require('mongoose');
 const { Schema, model } = require('mongoose');
 
 const flightCheckoutSchema = new Schema({
@@ -6,25 +5,22 @@ const flightCheckoutSchema = new Schema({
     type: Schema.Types.ObjectId,
     default: ()=> new Types.ObjectId()
     },
+  flightout_id: {
+    type: Schema.Types.ObjectId,
+    required: true,
+    ref: 'Flightout'
+    },
   passenger_id: {
     type: String,
-    required: true,
+    required: false,
     ref: 'Passenger'
     },
-  departureAirport: {
-    type: String,
-    required: true,
-    },
   departureDate: {
-    type: DateTime,
-    required: true,
-    },
-  arrivalAirport: {
-    type: String,
+    type: Date,
     required: true,
     },
   arrivalDate: {
-    type: DateTime,
+    type: Date,
     required: true,
     },
   flightClass: {
@@ -37,6 +33,6 @@ const flightCheckoutSchema = new Schema({
     }
 });
 
-const FlightCheckout = mongoose.model('FlightCheckout', flightCheckoutSchema);
+const FlightCheckout = model('FlightCheckout', flightCheckoutSchema);
 
 module.exports = FlightCheckout;

@@ -6,7 +6,7 @@ const passengerRoutes = require('./passenger-routes');
 
 router.use('/users', userRoutes);
 router.use('/flightouts', flightoutRoutes);
-router.user('/users/flights', flightCheckoutRoutes);
-router.user('/users/flights/passengers', passengerRoutes);
+router.use('/flights', flightCheckoutRoutes);
+router.use('/flights/passengers', passengerRoutes);
 
 module.exports = router;

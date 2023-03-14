@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const { Schema, model } = require('mongoose');
+const Order = require('./Order');
 
 const passengerSchema = new Schema({
   flight_id: {
@@ -40,6 +41,6 @@ const passengerSchema = new Schema({
   passengers: [Order.schema]
 });
 
-const Passenger = mongoose.model('Passenger', passengerSchema);
+const Passenger = model('Passenger', passengerSchema);
 
 module.exports = Passenger;
