@@ -2,7 +2,7 @@ const { Passenger } = require('../models');
 
 module.exports = {
     // ADD SINGLE Passenger -> -> POST /api/flights/:id/passengers/
-    addPassenger(req, res) {
+    async addPassenger(req, res) {
         Passenger.create(body)
         .then(dbPassengerData => {
             User.findOneAndUpdate({ _id: body.PassengerId }, { $push: { thoughts: dbPassengerData._id } }, { new: true })
@@ -19,7 +19,7 @@ module.exports = {
         },
 
     // EDIT SINGLE Passenger -> -> PUT /api/flights/:id/passengers/:id
-    updatePassenger({params, body}, res) {
+    async updatePassenger({params, body}, res) {
         Passenger.findOneAndUpdate({_id: params.id}, body, {new: true, runValidators: true})
         .then(dbPassengerData => {
             if (!dbPassengerData) {
@@ -32,7 +32,7 @@ module.exports = {
         },
 
     // DELETE SINGLE Passenger -> -> DELETE /api/flights/:id/passengers/:id
-    deletePassenger({params}, res) {
+    async deletePassenger({params}, res) {
         Passenger.findOneAndRemove({_id: params.id})
         .then(dbPassengerData => {
             if (!dbPassengerData) {

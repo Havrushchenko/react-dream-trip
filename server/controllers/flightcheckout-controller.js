@@ -1,8 +1,8 @@
-const { FlightCheckout, Passenger} = require('../models');
+const { FlightCheckout, Passenger } = require('../models');
 
 module.exports = {
   // GET a single flight -> GET /api/flights/:id
-  getFlightsbyId({params}, res) {
+  async getFlightsbyId({params}, res) {
     FlightCheckout.findOne({_id: params.id })
     .then(dbFlightCheckoutData => {
         if (!dbFlightCheckoutData) {
@@ -16,10 +16,12 @@ module.exports = {
         res.status(400).json(err);
         });
     },
-  // BOOK a single flight -> PUT /api/flights/:id
-  updateFlight({params, body}, res) {
-    FlightCheckout.findOneAndUpdate({_id: params.id}, body, {new: true, runValidators: true})
+  // CREATE a single flight -> PUT /api/flights/:id
+  async bookFlight(req, res) {
+    console.log("test")
+    FlightCheckout.create( req.body, {new: true, runValidators: true})
     .then(dbFlightCheckoutData => {
+        console.log("bookflight")
         if (!dbFlightCheckoutData) {
             res.status(404).json({ message: 'No flight found with this Id' });
             return;
@@ -29,7 +31,7 @@ module.exports = {
     .catch(err => res.json(err)); 
     },
   // DELETE a flight by ID -> DELETE /api/flights/:id
-  deleteFlight({params}, res) {
+  async deleteFlight({params}, res) {
     FlightCheckout.findOneAndDelete({_id: params.id})
     .then(dbFlightCheckoutData => {
         if (!dbFlightCheckoutData) {
