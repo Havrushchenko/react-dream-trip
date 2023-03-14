@@ -1,22 +1,36 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { GiStripedSun } from 'react-icons/gi';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import { GrClose } from 'react-icons/gr';
 import { AiOutlineShoppingCart } from 'react-icons/ai'
-import { useState } from "react";
 import Auth from '../../utils/auth';
+import { motion, useScroll } from "framer-motion";
+
 
 export function Nav() {
+    const { scrollY } = useScroll();
+    const [hidden, setHidden] = useState(false);
+
+    function update() {
+        if (scrollY?.current < scrollY?.prev) {
+            setHidden(false);
+        } else if (scrollY?.current > 100 && scrollY?.current > scrollY?.prev) {
+            setHidden(true);
+        }
+    }
+    useEffect(() => {
+        return scrollY.onChange(() => update());
+    });
+    const variants = {
+        visible: { opacity: 1, y: 0 },
+        hidden: { opacity: 0, y: -25 }
+    };
     const [navbar, setNavbar] = useState(false);
     const categories = [
         {
             name: 'Home',
             link: '/home'
-        },
-        {
-            name: 'Contact',
-            link: '/contact'
         },
         {
             name: 'Help & Support',
@@ -34,7 +48,8 @@ export function Nav() {
         },
     ];
     return (
-        <nav className="">
+        <motion.div className="" variants={variants} animate={hidden ? "hidden" : "visible"}
+            transition={{ ease: [0., 0.25, 0.3, 1], duration: 0.6 }}>
             <div className="justify-between mx-auto sm:pl-[48px] sm:pr-[48px] sm:pt-[5px] sm:pb-[5px] md:items-center md:flex md:px-[48px] bg-grey shadow-lg">
                 <div>
                     <div className="flex items-center justify-between md:py-5 md:block">
@@ -69,9 +84,12 @@ export function Nav() {
                             )}
                             {Auth.loggedIn() ? (
                                 <>
+                                <li className="text-slate-600 hover:text-black cursor-pointer"><Link to='/contact'>Contact</Link></li>
                                     <li>
-                                        <button className="text-slate-600 hover:text-black cursor-pointer" onClick={Auth.logout}>Logout</button>
+                                        <button className="text-slate-600 hover:text-black cursor-pointer" onClick={Auth.logout}>Logout</button>     
                                     </li>
+                                    <li className="flex items-center gap-2 text-slate-600 hover:text-black cursor-pointer"><AiOutlineShoppingCart />Cart</li>
+
                                 </>
                             ) : (
                                 <>
@@ -82,11 +100,10 @@ export function Nav() {
                                     )}
                                 </>
                             )}
-                            <li className="flex items-center gap-2 text-slate-600 hover:text-black cursor-pointer"><AiOutlineShoppingCart />Cart</li>
                         </div>
                     </div>
                 </div>
             </div>
-        </nav>
+        </motion.div>
     );
 }

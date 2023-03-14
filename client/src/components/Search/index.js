@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { IoIosAirplane } from 'react-icons/io';
 import { AiOutlineSearch } from 'react-icons/ai';
@@ -8,8 +8,30 @@ import "react-datepicker/dist/react-datepicker.css";
 import backgroundVideo from '../../assets/img/background-video.mp4';
 import { findFlightout } from '../../utils/api';
 import Auth from '../../utils/auth';
+import { motion, useScroll } from "framer-motion";
+import { Card } from "../Card";
 
 export function Search() {
+    const { scrollY } = useScroll();
+    const [hidden, setHidden] = useState(false);
+
+    function update() {
+        if (scrollY?.current < scrollY?.prev) {
+            setHidden(false);
+        } else if (scrollY?.current > 100 && scrollY?.current > scrollY?.prev) {
+            setHidden(true);
+        }
+    }
+
+    useEffect(() => {
+        return scrollY.onChange(() => update());
+    });
+
+    const variants = {
+        visible: { opacity: 1, y: 0 },
+        hidden: { opacity: 0, y: -25 }
+    };
+
     const [startDate, setStartDate] = useState(new Date());
     const [formData, setFormData] = useState({
         departure_city: '',
@@ -31,7 +53,18 @@ export function Search() {
                 throw new Error('something went wrong!');
             }
             const flightouts = await response.json();
-            console.log(flightouts, startDate);
+            console.log(flightouts, startDate)
+            // const flightoutData = flightouts.map((flightout) => ({
+            //     // airline: flightout.airline,
+            //     flight_number: flightout.flight_number,
+            //     // departure_city: flightout.departure_city,
+            //     // destination_city: flightout.destination_city,
+            //     // date: flightout.date,
+            //     // departure_airport: flightout.departure_airport,
+            //     // destination_airport: flightout.destination_airport,
+            //     // price: flightout.price
+            // }));
+            // console.log(flightouts, startDate);
         } catch (err) {
             console.error(err);
         }
@@ -43,7 +76,8 @@ export function Search() {
     };
 
     return (
-        <div className="flex flex-col items-center justify-center shadow-lg mx-[50px] my-[50px] mt-[50px]">
+        <motion.div variants={variants} animate={hidden ? "hidden" : "visible"}
+            transition={{ ease: [0.9, 0.25, 0.3, 1], duration: 0.6 }} className="flex flex-col items-center justify-center shadow-lg mx-[50px] my-[50px] mt-[50px]">
             <video className="video rounded-[10px] h-[500px] w-[100%] object-cover" src={backgroundVideo} muted autoPlay loop />
             {Auth.loggedIn() ? (
                 <>
@@ -67,12 +101,8 @@ w-[100%] text-sm' placeholder='Destination City' autocomplete="off" />
                                 <div className='flex gap-2 items-center'>
                                     <BsCalendar3Week className='text-[25px]' />
                                     <DatePicker className='bg-transparent focus:outline-none
-w-[100%] text-sm' placeholderText="Select a weekday"
-                                        dateFormat="MMMM d, yyyy"
-                                        selected={startDate}
-                                        selectsStart
-                                        startDate={startDate}
-                                        onChange={date => setStartDate(date)} />
+w-[100%] text-sm' placeholderText="Select a weekday" dateFormat="MMMM d, yyyy" selected={startDate} selectsStart
+                                        startDate={startDate} onChange={date => setStartDate(date)} />
                                 </div>
                                 <button type='button' onClick={handleFormSubmit}
                                     className="flex w-32 h-11 rounded-r-[10px] gap-2 text-white bg-green-800 hover:bg-green-700 justify-center place-items-center text-sm">
@@ -87,10 +117,10 @@ w-[100%] text-sm' placeholderText="Select a weekday"
                 <>
                     <div className="absolute">
                         <h2 className="text-[25px] font-bold leading-tight tracking-tight text-green-800 text-center">Book cheep flights<span className="text-white"> other sites simply can't find</span></h2>
-                        <p className="text-white">Please <Link className="font-bold hover:text-green-800" to='/login'>login</Link> or create a <Link className="font-bold hover:text-green-800" to='/signup'>new account</Link> to use all the dvantages of out service.</p>
+                        <p className="text-white">Please <Link className="font-bold hover:text-green-800" to='/login'>login</Link> or create a <Link className="font-bold hover:text-green-800" to='/signup'>new account</Link> to use all the advantages of our service.</p>
                     </div>
                 </>
-                                            )}
-        </div>
+            )}
+        </motion.div>
     );
 }
