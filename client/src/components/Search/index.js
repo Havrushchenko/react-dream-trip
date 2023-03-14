@@ -54,6 +54,7 @@ export function Search() {
             }
             const flightouts = await response.json();
             console.log(flightouts, startDate)
+            // setState made
             // const flightoutData = flightouts.map((flightout) => ({
             //     // airline: flightout.airline,
             //     flight_number: flightout.flight_number,
@@ -64,7 +65,7 @@ export function Search() {
             //     // destination_airport: flightout.destination_airport,
             //     // price: flightout.price
             // }));
-            // console.log(flightouts, startDate);
+        
         } catch (err) {
             console.error(err);
         }
@@ -76,6 +77,7 @@ export function Search() {
     };
 
     return (
+        
         <motion.div variants={variants} animate={hidden ? "hidden" : "visible"}
             transition={{ ease: [0.9, 0.25, 0.3, 1], duration: 0.6 }} className="flex flex-col items-center justify-center shadow-lg mx-[50px] my-[50px] mt-[50px]">
             <video className="video rounded-[10px] h-[500px] w-[100%] object-cover" src={backgroundVideo} muted autoPlay loop />
@@ -122,5 +124,6 @@ w-[100%] text-sm' placeholderText="Select a weekday" dateFormat="MMMM d, yyyy" s
                 </>
             )}
         </motion.div>
+       
     );
 }
