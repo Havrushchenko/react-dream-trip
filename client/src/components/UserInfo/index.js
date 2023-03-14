@@ -9,7 +9,6 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 export default function UserInfo() {
-  const [authEmail, seAuthEmail] = useState([""]);
   return (
     <Menu as="div" className="relative inline-block text-left">
       <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
@@ -43,26 +42,25 @@ export default function UserInfo() {
                     "block px-4 py-2 text-sm"
                   )}
                 >
+                  {/* put span */}
                   {Profile.getProfile().data.email}
                 </a>
               )}
             </Menu.Item>
 
-            <form method="POST" action="#">
-              <Menu.Item>
-                {({ active }) => (
-                  <button
-                    className={classNames(
-                      active ? "bg-gray-100 text-gray-900" : "text-gray-700",
-                      "block w-full px-4 py-2 text-left text-sm"
-                    )}
-                    onClick={Auth.logout}
-                  >
-                    Logout
-                  </button>
-                )}
-              </Menu.Item>
-            </form>
+            <Menu.Item>
+              {({ active }) => (
+                <button
+                  className={classNames(
+                    active ? "bg-gray-100 text-gray-900" : "text-gray-700",
+                    "block w-full px-4 py-2 text-left text-sm"
+                  )}
+                  onClick={Auth.logout}
+                >
+                  Logout
+                </button>
+              )}
+            </Menu.Item>
           </div>
         </Menu.Items>
       </Transition>

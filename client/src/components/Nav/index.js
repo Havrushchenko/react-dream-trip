@@ -6,7 +6,7 @@ import { GrClose } from "react-icons/gr";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import Auth from "../../utils/auth";
 import { motion, useScroll } from "framer-motion";
-import UserInfo from "../User";
+import UserInfo from "../UserInfo";
 
 export function Nav() {
   const { scrollY } = useScroll();
@@ -95,13 +95,13 @@ export function Nav() {
                   <li className="text-slate-600 hover:text-black cursor-pointer">
                     <Link to="/contact">Contact</Link>
                   </li>
-
-                  <li>
-                    <UserInfo />
-                  </li>
                   <li className="flex items-center gap-2 text-slate-600 hover:text-black cursor-pointer">
                     <AiOutlineShoppingCart />
                     Cart
+                  </li>
+
+                  <li>
+                    <UserInfo />
                   </li>
                 </>
               ) : (
