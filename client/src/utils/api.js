@@ -61,3 +61,14 @@ export const createMessage = (messageData) => {
     }
   });
 };
+
+export const createCheckoutSession = (stripeData) => {
+  return fetch('/api/stripe/create-checkout-session', {
+    method: 'POST',
+    body: JSON.stringify(stripeData),
+    headers: {
+      'Content-Type': 'application/json',
+    }
+  });
+};
+
