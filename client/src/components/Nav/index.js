@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import { GiStripedSun } from "react-icons/gi";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { GrClose } from "react-icons/gr";
-import { AiOutlineShoppingCart } from "react-icons/ai";
 import Auth from "../../utils/auth";
 import { motion, useScroll } from "framer-motion";
 import UserInfo from "../UserInfo";
+import CartToggle from "../CartToggle";
 
 export function Nav() {
   const { scrollY } = useScroll();
@@ -49,7 +49,6 @@ export function Nav() {
   ];
   return (
     <motion.div
-      className=""
       variants={variants}
       animate={hidden ? "hidden" : "visible"}
       transition={{ ease: [0, 0.25, 0.3, 1], duration: 0.6 }}
@@ -95,9 +94,8 @@ export function Nav() {
                   <li className="text-slate-600 hover:text-black cursor-pointer">
                     <Link to="/contact">Contact</Link>
                   </li>
-                  <li className="flex items-center gap-2 text-slate-600 hover:text-black cursor-pointer">
-                    <AiOutlineShoppingCart />
-                    Cart
+                  <li>
+                    <CartToggle className=" z-50	absolute" />
                   </li>
 
                   <li>
