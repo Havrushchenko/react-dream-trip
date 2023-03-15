@@ -13,10 +13,13 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "concurrently": "^5.3.0"
+    "concurrently": "^5.3.0",
+    "uglify-js": "^3.17.4"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.13",
     "bcrypt": "^5.1.0",
-    "jsonwebtoken": "^9.0.0"
+    "jsonwebtoken": "^9.0.0",
+    "stripe": "^11.14.0"
   }
 }
