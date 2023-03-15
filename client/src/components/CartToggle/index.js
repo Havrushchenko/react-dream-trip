@@ -31,7 +31,7 @@ export default function CartToggle() {
       as="div"
       className="visible relative z-50	 inline-block text-left "
     >
-      <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
+      <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm text-slate-600 hover:text-black shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
         <AiOutlineShoppingCart className="m-auto" />
         Cart
       </Menu.Button>
@@ -116,9 +116,23 @@ export default function CartToggle() {
                       </div>
                     )}
                   </Menu.Item>
+                  <Menu.Item>
+                    {({ active }) => (
+                      <div
+                        className={classNames(
+                          "text-gray-700",
+                          "flex  w-full px-4 py-2 text-left text-sm  space-x-20"
+                        )}
+                      >
+                        
+                      </div>
+                    )}
+                  </Menu.Item>
                 </div>
+
               )
             )}
+            <button className='flex w-full h-11 rounded-b-[5px] gap-2 text-white bg-green-800 hover:bg-green-700 justify-center place-items-center text-sm'>Checkout</button>
           </div>
         </Menu.Items>
       </Transition>
