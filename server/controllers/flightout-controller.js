@@ -1,4 +1,4 @@
-const { Flightout } = require('../models');
+const { Flightout, FlightCheckout, Passenger } = require('../models');
 
 module.exports = {
   async getAllFlightouts(req, res) {
@@ -31,7 +31,13 @@ module.exports = {
           res.status(404).json({ message: 'No flightout found with this id!' });
           return;
         }
-        res.json(dbFlightoutData);
+        // delete the flight data
+        FlightCheckout.deleteMany({ flight_id: dbFlightoutData.id })
+        .then(Passenger.deleteMany({ flight_id: dbFlightCheckoutData.id }))
+        .then(() => {
+            res.json({message: 'Successfully deleted the flight'});
+            })
+        .catch(err => res.status(500).json(err));
       })
       .catch(err => res.status(400).json(err));
   }
