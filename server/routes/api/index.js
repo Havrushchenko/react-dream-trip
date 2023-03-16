@@ -7,9 +7,6 @@ const stripeRoutes = require('./stripe-routes');
 router.use('/users', userRoutes);
 router.use('/flightouts', flightoutRoutes);
 router.use('/messages', messageRoutes);
-<<<<<<< HEAD
-=======
 router.use('/stripe', stripeRoutes);
->>>>>>> main
 
 module.exports = router;
