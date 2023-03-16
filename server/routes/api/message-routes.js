@@ -4,6 +4,7 @@ const {
     createMessage
 } = require('../../controllers/message-controller');
 
-router.route('/create-checkout-session').post(createMessage);
+router.route('/').get(getAllMessages);
+router.route('/').post(createMessage);
 
 module.exports = router;
