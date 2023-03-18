@@ -3,6 +3,7 @@ import { IoIosAirplane } from 'react-icons/io'
 import { MdAirplaneTicket } from 'react-icons/md'
 
 export function Card() {
+    const {addToCart} =  useAppContext()
     return (
         <div className="flex justify-center">
             <div className="result-card-wrapper w-2/4 bg-white flex flex-col rounded-[10px] overflow-hidden shadow-lg mb-[50px]">
@@ -45,7 +46,8 @@ export function Card() {
                             <p className="text-xs text-slate-600">Price per adult</p>
                         </div>
                         <button
-                            className="w-32 h-11 rounded-[10px] flex border-solid border text-white bg-green-800 hover:bg-green-700 mx-2 justify-center place-items-center text-sm">
+                        // pass data
+                            onClick={()=>addToCart(props)} className="w-32 h-11 rounded-[10px] flex border-solid border text-white bg-green-800 hover:bg-green-700 mx-2 justify-center place-items-center text-sm">
                             Book
                         </button>
                     </div>

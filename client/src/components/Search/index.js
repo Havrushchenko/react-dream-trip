@@ -11,10 +11,10 @@ import Auth from '../../utils/auth';
 import { motion, useScroll } from "framer-motion";
 import { Card } from "../Card";
 
+
 export function Search() {
     const { scrollY } = useScroll();
     const [hidden, setHidden] = useState(false);
-
     function update() {
         if (scrollY?.current < scrollY?.prev) {
             setHidden(false);
@@ -22,6 +22,7 @@ export function Search() {
             setHidden(true);
         }
     }
+
 
     useEffect(() => {
         return scrollY.onChange(() => update());
