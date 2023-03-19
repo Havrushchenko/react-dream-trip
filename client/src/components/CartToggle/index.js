@@ -1,7 +1,6 @@
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
-import Profile from "../../utils/auth";
-import Auth from "../../utils/auth";
+
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { useAppContext } from "../../context";
 
@@ -10,8 +9,16 @@ function classNames(...classes) {
 }
 export default function CartToggle() {
   const { shoppingCart } = useAppContext();
+  function calculateTotal() {
+    let sum = 0;
+    shoppingCart.forEach((item) => {
+      sum += shoppingCart[0].price.split("$")[0];
+    });
 
-  console.log(shoppingCart);
+    return sum;
+  }
+  console.log(calculateTotal());
+
   console.log(shoppingCart[0]);
 
   return (
@@ -59,7 +66,7 @@ export default function CartToggle() {
                       )}
                     >
                       <span>Flights</span>
-                      <span>{shoppingCart[0].price}$</span>
+                      <span>{shoppingCart[0].price}</span>
                     </div>
                   )}
                 </Menu.Item>
@@ -68,14 +75,13 @@ export default function CartToggle() {
                   {({ active }) => (
                     <div
                       className={classNames(
-                        "text-gray-700",
-                        "flex  w-full px-4 py-2 text-left text-sm  space-x-20"
+                        "text-gray text-xs font-extralight",
+                        " flex w-full px-4 py-2 text-left text-sm  space-x-20"
                       )}
                     >
-                      <div>{shoppingCart.date}</div>
-                      <div className="font-bold text-green-800">
-                        {shoppingCart[0].departure_city} -{" "}
-                        {shoppingCart[0].destination_city}
+                      <div>{shoppingCart[0].date.split("T")[0]}</div>
+                      <div className=" ">
+                        number {shoppingCart[0].flight_number}
                       </div>
                     </div>
                   )}
@@ -88,24 +94,24 @@ export default function CartToggle() {
                         "block w-full px-4 py-2 text-left text-sm border-t-0 "
                       )}
                     >
-                      <div className="pl-32 pb-2 ">
-                        number {shoppingCart[0].flight_number}
+                      <div className="font-bold text-green-800 text-center	">
+                        <span className="text-gray-700 text-xs font-extralight">
+                          from
+                        </span>{" "}
+                        {shoppingCart[0].departure_city} -{" "}
+                        <span className="text-gray-700 text-xs font-extralight">
+                          to
+                        </span>{" "}
+                        {shoppingCart[0].destination_city}
                       </div>
                     </div>
                   )}
                 </Menu.Item>
-                <Menu.Item>
-                  {({ active }) => (
-                    <div
-                      className={classNames(
-                        "text-gray-700",
-                        "flex  w-full px-4 py-2 text-left text-sm  space-x-20"
-                      )}
-                    ></div>
-                  )}
-                </Menu.Item>
               </div>
             ))}
+            <div>
+              <strong>Total: {calculateTotal()}</strong>
+            </div>
             <button className="flex w-full h-11 rounded-b-[5px] gap-2 text-white bg-green-800 hover:bg-green-700 justify-center place-items-center text-sm">
               Checkout
             </button>

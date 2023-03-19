@@ -1,10 +1,10 @@
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 
 import { FaUserCheck } from "react-icons/fa";
 import Profile from "../../utils/auth";
 import Auth from "../../utils/auth";
-import { useAppContext } from '../../context';
+
 
 
 function classNames(...classes) {
