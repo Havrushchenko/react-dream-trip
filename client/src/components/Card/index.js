@@ -59,7 +59,7 @@ export function Card(props) {
             <div className="text-sm mx-2 flex flex-col">
               <p className="">Standard Ticket</p>
               <p className="text-xs text-slate-600">
-                Price per adult {props.price}
+                Price per adult {props.price} $
               </p>
             </div>
             <button

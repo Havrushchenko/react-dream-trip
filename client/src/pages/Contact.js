@@ -61,7 +61,6 @@ export function Contact() {
                 throw new Error('something went wrong!');
             }
             const data = await response.json();
-            console.log(data);
         } catch (err) {
             console.error(err);
         }

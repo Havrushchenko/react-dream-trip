@@ -12,18 +12,15 @@ export default function CartToggle() {
   function calculateTotal() {
     let sum = 0;
     shoppingCart.forEach((item) => {
-      sum += shoppingCart[0].price.split("$")[0];
+      sum += shoppingCart[0].price;
     });
 
     return sum;
   }
-  console.log(calculateTotal());
-
-  console.log(shoppingCart[0]);
 
   return (
-    <Menu as="div" className="visible relative z-50	 inline-block text-left ">
-      <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm text-slate-600 hover:text-black shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
+    <Menu as="div" className="visible relative z-50	 inline-block text-left">
+      <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-3 text-sm text-slate-600 hover:text-black shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
         <AiOutlineShoppingCart className="m-auto" />
         Cart
       </Menu.Button>
@@ -38,7 +35,7 @@ export default function CartToggle() {
         leaveTo="transform opacity-0 scale-95"
       >
         <Menu.Items
-          className="md:absolute mt-2 w-50 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none
+          className="md:absolute mt-2 w-50 ml-[70px] origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none
        
          "
         >
@@ -65,8 +62,8 @@ export default function CartToggle() {
                         "block w-full px-4 py-2 text-left text-sm border-t-0 "
                       )}
                     >
-                      <span>Flights</span>
-                      <span>{shoppingCart[0].price}</span>
+                      <span>Price</span>
+                      <span>{shoppingCart[0].price} $</span>
                     </div>
                   )}
                 </Menu.Item>
@@ -109,8 +106,8 @@ export default function CartToggle() {
                 </Menu.Item>
               </div>
             ))}
-            <div>
-              <strong>Total: {calculateTotal()}</strong>
+            <div className=" text-green-800 px-4 py-2">
+              <span>Total: {calculateTotal()} $</span>
             </div>
             <button className="flex w-full h-11 rounded-b-[5px] gap-2 text-white bg-green-800 hover:bg-green-700 justify-center place-items-center text-sm">
               Checkout
