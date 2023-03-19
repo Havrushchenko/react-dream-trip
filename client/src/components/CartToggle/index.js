@@ -29,7 +29,7 @@ export default function CartToggle() {
   return (
     <Menu
       as="div"
-      className="visible relative z-50	 inline-block text-left "
+      className="visible relative z-50 inline-block text-left "
     >
       <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm text-slate-600 hover:text-black shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
         <AiOutlineShoppingCart className="m-auto" />
@@ -46,9 +46,7 @@ export default function CartToggle() {
         leaveTo="transform opacity-0 scale-95"
       >
         <Menu.Items
-          className="md:absolute mt-2 w-50 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none
-       
-         "
+          className="md:absolute mt-3 ml-[70px] w-50 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
         >
           <div className="md:absolute left lg:absolute right-0 z-10 mt-2 w-100 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none ">
             {mockData.map(
@@ -92,7 +90,7 @@ export default function CartToggle() {
                       <div
                         className={classNames(
                           "text-gray-700",
-                          "flex  w-full px-4 py-2 text-left text-sm  space-x-20"
+                          "flex w-full px-4 py-2 text-left text-sm space-x-20"
                         )}
                       >
                         <div>{date}</div>
