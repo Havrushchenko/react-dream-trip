@@ -1,7 +1,11 @@
 import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
+import { FaUserCheck } from 'react-icons/fa'
+import { AiOutlineUserAdd } from "react-icons/ai";
 import Profile from "../../utils/auth";
 import Auth from "../../utils/auth";
+
+
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -26,7 +30,9 @@ export default function UserInfo() {
         leaveTo="transform opacity-0 scale-95"
       >
         <Menu.Items
-          className="md:absolute mt-2 ml-10 w-50 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+          className="md:absolute mt-2 ml-10 w-50 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none
+       
+         "
         >
           <div className="md:absolute left lg:absolute right-0 z-10 mt-2 w-50 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none ">
             <Menu.Item>

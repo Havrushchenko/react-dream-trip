@@ -24,6 +24,7 @@ export default function CartToggle() {
         <AiOutlineShoppingCart className="m-auto" />
         Cart
       </Menu.Button>
+
       <Transition
         as={Fragment}
         enter="transition ease-out duration-100"
@@ -34,7 +35,9 @@ export default function CartToggle() {
         leaveTo="transform opacity-0 scale-95"
       >
         <Menu.Items
-          className="md:absolute mt-2 w-50 ml-[70px] origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+          className="md:absolute mt-2 w-50 ml-[70px] origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none
+       
+         "
         >
           <div className="md:absolute left lg:absolute right-0 z-10 mt-2 w-100 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none ">
             {shoppingCart.map((item) => (
@@ -64,6 +67,7 @@ export default function CartToggle() {
                     </div>
                   )}
                 </Menu.Item>
+
                 <Menu.Item>
                   {({ active }) => (
                     <div
