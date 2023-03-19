@@ -1,8 +1,10 @@
 import React from "react";
 import { IoIosAirplane } from "react-icons/io";
 import { MdAirplaneTicket } from "react-icons/md";
+import { useAppContext } from "../../context";
 
 export function Card(props) {
+  const { addToCart } = useAppContext();
   return (
     <div className="flex justify-center">
       <div className="result-card-wrapper w-2/4 bg-white flex flex-col rounded-[10px] overflow-hidden shadow-lg mb-[50px]">
@@ -57,10 +59,13 @@ export function Card(props) {
             <div className="text-sm mx-2 flex flex-col">
               <p className="">Standard Ticket</p>
               <p className="text-xs text-slate-600">
-                Price per adult {props.price}
+                Price per adult {props.price} $
               </p>
             </div>
-            <button className="w-32 h-11 rounded-[10px] flex border-solid border text-white bg-green-800 hover:bg-green-700 mx-2 justify-center place-items-center text-sm">
+            <button
+              onClick={() => addToCart(props)}
+              className="w-32 h-11 rounded-[10px] flex border-solid border text-white bg-green-800 hover:bg-green-700 mx-2 justify-center place-items-center text-sm"
+            >
               Book
             </button>
           </div>

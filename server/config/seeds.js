@@ -14,7 +14,7 @@ db.once('open', async () => {
         date: "2023-11-01T04:29:52.973Z",
         departure_airport: "CNF",
         destination_airport: "REC",
-        price: "84$",
+        price: "84",
       },
       {
         airline: "Hong Kong Airlines",
@@ -24,7 +24,7 @@ db.once('open', async () => {
         date: "2023-06-30T08:01:13.207Z",
         departure_airport: "DOH",
         destination_airport: "MAN",
-        price: "105$",
+        price: "105",
       },
       {
         airline: "Air Caraibes",
@@ -34,7 +34,7 @@ db.once('open', async () => {
         date: "2024-01-23T22:34:49.264Z",
         departure_airport: "LAX",
         destination_airport: "LST",
-        price: "1015$",
+        price: "1015",
       },
       {
         airline: "Air Europa",
@@ -44,7 +44,7 @@ db.once('open', async () => {
         date: "2023-12-02T21:19:59.041Z",
         departure_airport: "EWR",
         destination_airport: "PMI",
-        price: "115$",
+        price: "115",
       },
       {
         airline: "Caribbean Airlines",
@@ -54,7 +54,7 @@ db.once('open', async () => {
         date: "2023-06-06T01:07:00.034Z",
         departure_airport: "ICN",
         destination_airport: "DFW",
-        price: "993$",
+        price: "993",
       },
       {
         airline: "Air Astana",
@@ -64,7 +64,7 @@ db.once('open', async () => {
         date: "2023-12-20T10:32:29.113Z",
         departure_airport: "YYZ",
         destination_airport: "DUB",
-        price: "1150$",
+        price: "1150",
       },
       {
         airline: "Pegasus Airlines",
@@ -74,7 +74,7 @@ db.once('open', async () => {
         date: "2023-08-24T11:10:13.681Z",
         departure_airport: "AYT",
         destination_airport: "CGK",
-        price: "459$",
+        price: "459",
       },
       {
         airline: "PCondor",
@@ -84,7 +84,7 @@ db.once('open', async () => {
         date: "2024-01-28T11:01:04.901Z",
         departure_airport: "CPH",
         destination_airport: "DLA",
-        price: "659$",
+        price: "659",
       },
       {
         airline: "South African Airways",
@@ -94,7 +94,7 @@ db.once('open', async () => {
         date: "2023-12-29T01:49:22.198Z",
         departure_airport: "SIN",
         destination_airport: "EZE",
-        price: "1090$",
+        price: "1090",
       },
       {
         airline: "Swoop",
@@ -104,7 +104,7 @@ db.once('open', async () => {
         date: "2023-12-14T18:03:13.375Z",
         departure_airport: "CAI",
         destination_airport: "HEL",
-        price: "413$",
+        price: "413",
       }
     ]);
 
