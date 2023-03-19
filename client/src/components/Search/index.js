@@ -11,7 +11,7 @@ import Auth from "../../utils/auth";
 import { motion, useScroll } from "framer-motion";
 import { Card } from "../Card";
 
-export function Search(props) {
+export function Search() {
   const { scrollY } = useScroll();
   const [hidden, setHidden] = useState(false);
 
@@ -40,7 +40,6 @@ export function Search(props) {
   });
 
   const [flightoutsData, setFlightoutsData] = useState({});
-
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
@@ -179,7 +178,6 @@ w-[100%] text-sm"
           </>
         )}
       </motion.div>
-
       <div>
         {Object.keys(flightoutsData).length > 0 ? (
           <Card {...flightoutsData} />

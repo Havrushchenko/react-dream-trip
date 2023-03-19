@@ -32,10 +32,9 @@ export function Card(props) {
           </div>
 
           <div className="flex flex-col p-2">
-            <p className="departure-time font-bold"></p>
             <p className="departure-city text-slate-600">
               {" "}
-              from - {props.departure_city}
+              {props.departure_city}
             </p>
             <p className="departure-airport text-slate-600 font-bold">
               {props.departure_airport}
@@ -44,7 +43,7 @@ export function Card(props) {
           <div className="flex flex-col flex-wrap p-2">
             <p className="destination-city text-slate-600">
               {" "}
-              to - {props.destination_city}
+              {props.destination_city}
             </p>
             <p className="destination-airport text-slate-600 font-bold">
               {props.destination_airport}

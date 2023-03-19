@@ -1,6 +1,5 @@
 import React from "react";
-import { FaRegPaperPlane } from 'react-icons/fa'
-// import subscriptionBackground from '../../assets/img/subscription-background.jpg'
+import { FaRegPaperPlane } from 'react-icons/fa';
 
 export function Subscription() {
     return (
