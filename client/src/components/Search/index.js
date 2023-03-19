@@ -2,9 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { IoIosAirplane } from "react-icons/io";
 import { AiOutlineSearch } from "react-icons/ai";
-import { BsCalendar3Week } from "react-icons/bs";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
 import backgroundVideo from "../../assets/img/background-video.mp4";
 import { findFlightout } from "../../utils/api";
 import Auth from "../../utils/auth";
@@ -126,19 +123,6 @@ w-[100%] text-sm"
 w-[100%] text-sm"
                       placeholder="Destination City"
                       autocomplete="off"
-                    />
-                  </div>
-                  <div className="flex gap-2 items-center">
-                    <BsCalendar3Week className="text-[25px]" />
-                    <DatePicker
-                      className="bg-transparent focus:outline-none
-w-[100%] text-sm"
-                      placeholderText="Select a weekday"
-                      dateFormat="MMMM d, yyyy"
-                      selected={startDate}
-                      selectsStart
-                      startDate={startDate}
-                      onChange={(date) => setStartDate(date)}
                     />
                   </div>
                   <button

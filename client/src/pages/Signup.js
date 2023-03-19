@@ -53,7 +53,6 @@ export function Signup() {
             }
             const { token, user } = await response.json();
             Auth.login(token);
-            console.log(user, token);
         } catch (err) {
             console.error(err);
         }
