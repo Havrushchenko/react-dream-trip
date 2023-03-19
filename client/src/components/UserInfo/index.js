@@ -1,11 +1,8 @@
 import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
-import { FaUserCheck } from 'react-icons/fa'
-import { AiOutlineUserAdd } from "react-icons/ai";
+import { FaUserCheck } from "react-icons/fa";
 import Profile from "../../utils/auth";
 import Auth from "../../utils/auth";
-
-
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
