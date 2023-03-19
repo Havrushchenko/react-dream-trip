@@ -1,6 +1,5 @@
 import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
-
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { useAppContext } from "../../context";
 
